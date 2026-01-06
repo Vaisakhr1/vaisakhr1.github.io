@@ -94,11 +94,11 @@ a { color: #00ffd5; text-decoration: none; }
 }
 
 /* VERTICAL MEDIA */
-.vertical {
-  max-width: 320px !important;
-  max-height: 480px !important;
-  margin: auto;
-  display: block;
+video.vertical {
+  aspect-ratio: 9 / 16;
+  max-width: 320px;
+  max-height: 560px;
+  object-fit: contain;
 }
 
 /* MOBILE */
