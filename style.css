@@ -48,9 +48,13 @@ a {
 .video-container video {
   width: 100%;
   max-width: 800px;
-  margin-bottom: 10px;
+  max-height: 450px;   /* IMPORTANT */
+  object-fit: contain;
   border-radius: 14px;
+  margin: 0 auto;
+  display: block;
 }
+
 
 
 /* SCREENSHOTS GRID */
@@ -60,7 +64,7 @@ a {
   gap: 12px;
   margin-top: 16px;
 }
-
+  
 .screenshots img {
   width: 100%;
   max-height: 140px;
