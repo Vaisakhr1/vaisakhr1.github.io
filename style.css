@@ -82,5 +82,35 @@ a {
   margin: 0 auto;
   display: block;
 }
+/* ABOUT SECTION LAYOUT */
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+/* PROFILE PHOTO */
+.profile-photo {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%; /* circular photo */
+  flex-shrink: 0;
+  border: 2px solid #222;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-photo {
+    width: 140px;
+    height: 140px;
+  }
+}
 
 
