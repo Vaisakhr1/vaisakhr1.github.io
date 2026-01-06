@@ -17,18 +17,23 @@ section {
   margin: auto;
 }
 
-h2 { margin-bottom: 15px; }
+a {
+  color: #00ffd5;
+  text-decoration: none;
+}
 
-a { color: #00ffd5; text-decoration: none; }
+h2 {
+  margin-bottom: 15px;
+}
 
+/* BUTTON */
 .btn {
-  margin-top: 10px;
   background: none;
   border: 1px solid #00ffd5;
   color: #00ffd5;
-  padding: 6px 14px;
-  cursor: pointer;
+  padding: 6px 16px;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -39,7 +44,7 @@ a { color: #00ffd5; text-decoration: none; }
 /* ABOUT */
 .about-container {
   display: flex;
-  gap: 25px;
+  gap: 24px;
   align-items: center;
 }
 
@@ -49,15 +54,17 @@ a { color: #00ffd5; text-decoration: none; }
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer;
-  transition: transform .3s, box-shadow .3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .profile-photo.active {
   transform: scale(1.1);
-  box-shadow: 0 0 30px rgba(0,255,213,.6);
+  box-shadow: 0 0 30px rgba(0,255,213,0.6);
 }
 
-.hidden { display: none; }
+.hidden {
+  display: none;
+}
 
 /* PROJECTS */
 .project {
@@ -70,20 +77,20 @@ a { color: #00ffd5; text-decoration: none; }
 .project-media video {
   width: 100%;
   max-width: 800px;
-  aspect-ratio: 16 / 9;   /* locks correct shape */
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: 14px;
   display: block;
-  margin: 10px auto 20px;
+  margin: 15px auto;
   background: #000;
 }
-
 
 /* SCREENSHOTS */
 .screenshots {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 12px;
+  margin-top: 12px;
 }
 
 .screenshots img {
@@ -94,11 +101,14 @@ a { color: #00ffd5; text-decoration: none; }
 }
 
 /* VERTICAL MEDIA */
-video.vertical {
+video.vertical,
+img.vertical {
   aspect-ratio: 9 / 16;
   max-width: 320px;
-  max-height: 560px;
+  max-height: 520px;
   object-fit: contain;
+  margin: auto;
+  display: block;
 }
 
 /* MOBILE */
