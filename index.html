@@ -138,20 +138,68 @@
 
 <!-- JS -->
 <script>
-  document.getElementById("toggleAbout").onclick = () => {
-    document.getElementById("moreAbout").classList.toggle("hidden");
-  };
+  /* ------------------------------
+     ABOUT SECTION TOGGLE
+  --------------------------------*/
+  const toggleAboutBtn = document.getElementById("toggleAbout");
+  const moreAboutText = document.getElementById("moreAbout");
 
-  document.querySelectorAll(".toggleProject").forEach(btn => {
-    btn.onclick = () => {
-      btn.nextElementSibling.classList.toggle("hidden");
-    };
+  toggleAboutBtn.addEventListener("click", () => {
+    moreAboutText.classList.toggle("hidden");
+    toggleAboutBtn.textContent =
+      moreAboutText.classList.contains("hidden")
+        ? "Read more"
+        : "Read less";
   });
 
-  document.getElementById("profilePhoto").onclick = e => {
-    e.target.classList.toggle("active");
-  };
-</script>
+  /* ------------------------------
+     PROJECT MEDIA TOGGLE + VIDEO CONTROL
+  --------------------------------*/
+  document.querySelectorAll(".toggleProject").forEach(button => {
+    button.addEventListener("click", () => {
+      const media = button.nextElementSibling;
+      const isHidden = media.classList.contains("hidden");
 
-</body>
-</html>
+      // Close all other open project media & stop their videos
+      document.querySelectorAll(".project-media").forEach(pm => {
+        if (pm !== media) {
+          pm.classList.add("hidden");
+          pm.querySelectorAll("video").forEach(v => {
+            v.pause();
+            v.currentTime = 0;
+          });
+        }
+      });
+
+      // Toggle current project
+      media.classList.toggle("hidden");
+
+      // Handle videos inside this project
+      const videos = media.querySelectorAll("video");
+
+      videos.forEach(video => {
+        if (isHidden) {
+          // Just opened → play
+          video.currentTime = 0;
+          video.play().catch(() => {});
+        } else {
+          // Just closed → stop
+          video.pause();
+          video.currentTime = 0;
+        }
+      });
+
+      // Button label
+      button.textContent = isHidden ? "Hide Media" : "View Media";
+    });
+  });
+
+  /* ------------------------------
+     PROFILE PHOTO INTERACTION
+  --------------------------------*/
+  const profilePhoto = document.getElementById("profilePhoto");
+
+  profilePhoto.addEventListener("click", () => {
+    profilePhoto.classList.toggle("active");
+  });
+</script>
