@@ -12,156 +12,147 @@
   <p>Unity Developer · Game Dev · AR/VR Enthusiast</p>
 </header>
 
+<!-- ABOUT -->
 <section id="about">
   <h2>About Me</h2>
 
   <div class="about-container">
-    <img
-      src="assets/images/profile.jpeg"
-      alt="Vaisakh R Iyer"
-      class="profile-photo"
-    >
-  <p>
-    I’m a BCA graduate with a strong interest in Game Development and AR/VR (XR) technologies,
-    driven by curiosity for immersive and interactive digital experiences.
-    I’m currently focused on learning and building projects using Unity and C#, exploring how gameplay mechanics,
-    physics, and user interaction come together in games and extended reality applications. I enjoy experimenting with ideas,
-    breaking down complex concepts, and continuously improving my technical skills through hands-on practice.
-    I’m particularly interested in:
-    Game mechanics and gameplay systems
-    AR/VR experiences using Unity
-    Interactive and immersive application development
-As a fresher, I’m eager to grow, learn from industry professionals, and contribute to meaningful projects in the gaming and XR space. I’m actively looking for entry-level roles, internships, or trainee opportunities where I can develop my skills and add value to a creative team.
-  </p>
+    <img src="assets/images/profile.jpeg"
+         alt="Vaisakh R Iyer"
+         class="profile-photo"
+         id="profilePhoto">
+
+    <div class="about-text">
+      <p>
+        I’m a BCA graduate passionate about Game Development and AR/VR (XR).
+        I work with Unity and C#, focusing on gameplay mechanics, immersive
+        interactions, and real-time experiences.
+      </p>
+
+      <p class="hidden" id="moreAbout">
+        As a fresher, I actively build projects across 2D, 3D, AR, and VR,
+        learning through hands-on experimentation. I’m eager to grow in a
+        collaborative environment and contribute to meaningful interactive
+        experiences.
+      </p>
+
+      <button id="toggleAbout" class="btn">Read more</button>
+    </div>
+  </div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects">
   <h2>Projects</h2>
 
+  <!-- PROJECT CARD -->
   <div class="project">
-    <h3>Dreadlord’s Legacy (2D Game)</h3>
-    <p>2D platformer game built in Unity.</p>
-    <a href="projects/dreadlords-legacy.html">View Project →</a>
+    <h3>Dreadlord’s Legacy · 2D Game</h3>
+    <p>Dark fantasy 2D platformer built in Unity.</p>
+    <button class="btn toggleProject">View Media</button>
+
+    <div class="project-media hidden">
+      <video controls muted>
+        <source src="assets/videos/dreadlordgif.mp4" type="video/mp4">
+      </video>
+
+      <div class="screenshots">
+        <img src="assets/images/2d1.jpeg">
+        <img src="assets/images/2d3.jpeg">
+        <img src="assets/images/2f2.jpeg">
+      </div>
     </div>
-
-    <h2>Gameplay Video</h2>
-
-<div class="video-container">
-  <video controls muted playsinline>
-    <source src="../assets/gifs/dreadlordgif.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
-
-    <h2>Screenshots</h2>
-
-<div class="screenshots">
-  <img src="../assets/images/2d3.jpeg" alt="Dreadlord’s Legacy screenshot 1">
-  <img src="../assets/images/2f2.jpeg" alt="Dreadlord’s Legacy screenshot 2">
-  <img src="../assets/images/2d1.jpeg" alt="Dreadlord’s Legacy screenshot 3">
-</div>
-
-  <div class="project">
-    <h3>Playce (AR App)</h3>
-    <p>Augmented Reality application built with Unity.</p>
-    <a href="projects/playce-ar.html">View Project →</a>
   </div>
 
-   <h2>Gameplay Video</h2>
-
-<div class="video-container">
-  <video class="vertical" controls muted playsinline>
-    <source src="../assets/gifs/ARgif.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
-
-    <h2>Screenshots</h2>
-
-<div class="screenshots">
-  <img class = "vertical" src="../assets/images/AR4.jpeg"  alt="Vertical AR screenshot1">>
-  <img class = "vertical" src="../assets/images/AR3.jpeg"  alt="Vertical AR screenshot2">>
-</div>
-
+  <!-- AR PROJECT -->
   <div class="project">
-    <h3>My3DGame (3D Horror)</h3>
-    <p>3D horror game focusing on atmosphere and immersion.</p>
-    <a href="projects/my3dgame.html">View Project →</a>
+    <h3>Playce · AR Application</h3>
+    <p>Mobile AR experience using Unity AR Foundation.</p>
+    <button class="btn toggleProject">View Media</button>
+
+    <div class="project-media hidden">
+      <video class="vertical" controls muted>
+        <source src="assets/videos/ARgif.mp4" type="video/mp4">
+      </video>
+
+      <div class="screenshots">
+        <img class="vertical" src="assets/images/AR3.jpeg">
+        <img class="vertical" src="assets/images/AR4.jpeg">
+      </div>
+    </div>
   </div>
 
-    <h2>Gameplay Video</h2>
-
-<div class="video-container">
-  <video controls muted playsinline>
-    <source src="../assets/gifs/3dgif.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
-
-    <h2>Screenshots</h2>
-
-<div class="screenshots">
-  <img src="../assets/images/3d5.jpeg" alt="The Asylum Screenshot 1">
-  <img src="../assets/images/3d2.jpeg" alt="The Asylum screenshot 2">
-  <img src="../assets/images/3d1.jpeg" alt="The Asylum screenshot 2">
-</div>
-
-
+  <!-- 3D GAME -->
   <div class="project">
-    <h3>InfinityCastleVR (VR)</h3>
-    <p>Virtual Reality experience built with Unity XR.</p>
-    <a href="projects/infinity-castle-vr.html">View Project →</a>
+    <h3>My3DGame · Horror</h3>
+    <p>Atmospheric 3D horror game.</p>
+    <button class="btn toggleProject">View Media</button>
+
+    <div class="project-media hidden">
+      <video controls muted>
+        <source src="assets/videos/3dgif.mp4" type="video/mp4">
+      </video>
+
+      <div class="screenshots">
+        <img src="assets/images/3d1.jpeg">
+        <img src="assets/images/3d2.jpeg">
+        <img src="assets/images/3d5.jpeg">
+      </div>
+    </div>
   </div>
 
-    <h2>Gameplay Video</h2>
+  <!-- VR -->
+  <div class="project">
+    <h3>Infinity Castle · VR</h3>
+    <p>Large-scale VR environment using Unity XR.</p>
+    <button class="btn toggleProject">View Media</button>
 
-<div class="video-container">
-  <video class="vertical" controls muted playsinline>
-    <source src="../assets/gifs/IC(gif).mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
+    <div class="project-media hidden">
+      <video class="vertical" controls muted>
+        <source src="assets/videos/IC(gif).mp4" type="video/mp4">
+      </video>
 
-    <h2>Screenshots</h2>
-
-<div class="screenshots">
-  <img src="../assets/images/IC1.jpeg" alt=Infinity Castle Screenshot 1">
-  <img src="../assets/images/ic4.jpeg" alt="Infinity Castle screenshot 2">
-  <img src="../assets/images/IC5.jpeg" alt="Infinity Castle screenshot 2">
-   <img src="../assets/images/IC2.jpeg" alt="Infinity Castle screenshot 2">
-</div>
+      <div class="screenshots">
+        <img src="assets/images/IC1.jpeg">
+        <img src="assets/images/IC2.jpeg">
+        <img src="assets/images/ic4.jpeg">
+        <img src="assets/images/IC5.jpeg">
+      </div>
+    </div>
+  </div>
 </section>
 
-
+<!-- CONTACT -->
 <section id="contact">
   <h2>Contact</h2>
 
+  <p>📧 <a href="mailto:vaishakriyer123@gmail.com">vaishakriyer123@gmail.com</a></p>
+  <p>📞 <a href="tel:+918129625530">+91 8129625530</a></p>
   <p>
-    📧 Email:
-    <a href="mailto:vaishakriyer123@gmail.com">
-      vaishakriyer123@gmail.com
-    </a>
-  </p>
-
-  <p>
-    📞 Phone:
-    <a href="tel:+918129625530">
-      +91 8129625530
-    </a>
-  </p>
-
-  <p>
-    🔗
-    <a href="https://www.linkedin.com/in/vaisakh-r-iyer/" target="_blank">
-      LinkedIn
-    </a>
-    ·
-    <a href="https://github.com/Vaisakhr1" target="_blank">
-      GitHub
-    </a>
+    🔗 <a href="https://www.linkedin.com/in/vaisakh-r-iyer/" target="_blank">LinkedIn</a> ·
+    <a href="https://github.com/Vaisakhr1" target="_blank">GitHub</a>
   </p>
 </section>
 
+<!-- JS -->
+<script>
+  // About toggle
+  document.getElementById("toggleAbout").onclick = () => {
+    document.getElementById("moreAbout").classList.toggle("hidden");
+  };
+
+  // Project toggles
+  document.querySelectorAll(".toggleProject").forEach(btn => {
+    btn.onclick = () => {
+      btn.nextElementSibling.classList.toggle("hidden");
+    };
+  });
+
+  // Photo interaction
+  document.getElementById("profilePhoto").onclick = e => {
+    e.target.classList.toggle("active");
+  };
+</script>
 
 </body>
 </html>
