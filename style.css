@@ -75,3 +75,12 @@ a {
   padding: 3px;
 }
 
+/* Vertical media handling */
+.vertical {
+  max-width: 320px !important;
+  max-height: 480px !important;
+  margin: 0 auto;
+  display: block;
+}
+
+
