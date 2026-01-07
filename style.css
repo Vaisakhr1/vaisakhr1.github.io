@@ -1,20 +1,23 @@
+/* ------------------------------
+   GLOBAL
+--------------------------------*/
 body {
   font-family: Arial, sans-serif;
   background: #0f0f0f;
   color: #eaeaea;
   margin: 0;
+  animation: fadeIn 0.8s ease;
 }
 
-header {
-  padding: 60px;
-  text-align: center;
-  background: #111;
-}
-
-section {
-  padding: 40px;
-  max-width: 1000px;
-  margin: auto;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 a {
@@ -22,11 +25,51 @@ a {
   text-decoration: none;
 }
 
-h2 {
-  margin-bottom: 15px;
+.hidden {
+  display: none;
 }
 
-/* BUTTON */
+/* ------------------------------
+   HEADER
+--------------------------------*/
+header {
+  padding: 60px;
+  text-align: center;
+  background: #111;
+}
+
+h1 {
+  margin-bottom: 8px;
+}
+
+h2 {
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 50%;
+  height: 2px;
+  background: #00ffd5;
+}
+
+/* ------------------------------
+   SECTIONS
+--------------------------------*/
+section {
+  padding: 40px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* ------------------------------
+   BUTTONS
+--------------------------------*/
 .btn {
   background: none;
   border: 1px solid #00ffd5;
@@ -34,27 +77,36 @@ h2 {
   padding: 6px 16px;
   border-radius: 20px;
   cursor: pointer;
+  transition: all 0.25s ease;
 }
 
 .btn:hover {
   background: #00ffd5;
   color: #000;
+  transform: scale(1.05);
 }
 
-/* ABOUT */
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* ------------------------------
+   ABOUT SECTION
+--------------------------------*/
 .about-container {
   display: flex;
   gap: 24px;
   align-items: center;
 }
 
+/* PROFILE PHOTO */
 .profile-photo {
   width: 160px;
   height: 160px;
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .profile-photo.active {
@@ -62,18 +114,58 @@ h2 {
   box-shadow: 0 0 30px rgba(0,255,213,0.6);
 }
 
-.hidden {
-  display: none;
+/* AVATAR */
+.avatar-wrapper {
+  display: flex;
+  gap: 16px;
+  align-items: center;
 }
 
-/* PROJECTS */
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px dashed #00ffd5;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar:hover {
+  transform: rotate(-6deg) scale(1.1);
+  box-shadow: 0 0 20px rgba(0,255,213,0.5);
+}
+
+/* AVATAR WAVE */
+@keyframes wave {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(8deg); }
+  50% { transform: rotate(-8deg); }
+  75% { transform: rotate(6deg); }
+  100% { transform: rotate(0); }
+}
+
+.avatar.wave {
+  animation: wave 0.6s ease;
+}
+
+/* ------------------------------
+   PROJECTS
+--------------------------------*/
 .project {
   background: #1a1a1a;
   padding: 25px;
   border-radius: 14px;
   margin-top: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.project:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,255,213,0.15);
+}
+
+/* PROJECT MEDIA */
 .project-media video {
   width: 100%;
   max-width: 800px;
@@ -85,7 +177,9 @@ h2 {
   background: #000;
 }
 
-/* SCREENSHOTS */
+/* ------------------------------
+   SCREENSHOTS
+--------------------------------*/
 .screenshots {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -98,9 +192,17 @@ h2 {
   max-height: 130px;
   object-fit: cover;
   border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* VERTICAL MEDIA */
+.screenshots img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0,255,213,0.25);
+}
+
+/* ------------------------------
+   VERTICAL MEDIA
+--------------------------------*/
 video.vertical,
 img.vertical {
   aspect-ratio: 9 / 16;
@@ -111,10 +213,16 @@ img.vertical {
   display: block;
 }
 
-/* MOBILE */
+/* ------------------------------
+   MOBILE RESPONSIVE
+--------------------------------*/
 @media (max-width: 768px) {
   .about-container {
     flex-direction: column;
     text-align: center;
+  }
+
+  .avatar-wrapper {
+    justify-content: center;
   }
 }
