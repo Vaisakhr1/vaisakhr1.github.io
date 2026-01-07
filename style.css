@@ -180,3 +180,20 @@ img.vertical {
 .hidden {
   display: none;
 }
+/* INTRO AVATAR */
+.intro-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #00ffd5;
+  margin-bottom: 20px;
+  animation: floatAvatar 3s ease-in-out infinite;
+}
+
+@keyframes floatAvatar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
