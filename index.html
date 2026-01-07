@@ -17,12 +17,22 @@
   <h2>About Me</h2>
 
   <div class="about-container">
-    <img
-      src="assets/images/profile.jpeg"
-      alt="Vaisakh R Iyer"
-      class="profile-photo"
-      id="profilePhoto"
-    >
+   <div class="avatar-wrapper">
+  <img
+    src="assets/images/profile.jpeg"
+    alt="Vaisakh R Iyer"
+    class="profile-photo"
+    id="profilePhoto"
+  >
+
+  <img
+    src="assets/images/avatar.png"
+    alt="Vaisakh Avatar"
+    class="avatar"
+    id="avatar"
+  >
+</div>
+
 
     <div class="about-text">
       <p>
@@ -145,11 +155,10 @@
   const moreAboutText = document.getElementById("moreAbout");
 
   toggleAboutBtn.addEventListener("click", () => {
+    const isHidden = moreAboutText.classList.contains("hidden");
+
     moreAboutText.classList.toggle("hidden");
-    toggleAboutBtn.textContent =
-      moreAboutText.classList.contains("hidden")
-        ? "Read more"
-        : "Read less";
+    toggleAboutBtn.textContent = isHidden ? "Read less" : "Read more";
   });
 
   /* ------------------------------
@@ -160,13 +169,13 @@
       const media = button.nextElementSibling;
       const isHidden = media.classList.contains("hidden");
 
-      // Close all other open project media & stop their videos
+      // Close all other project media
       document.querySelectorAll(".project-media").forEach(pm => {
         if (pm !== media) {
           pm.classList.add("hidden");
-          pm.querySelectorAll("video").forEach(v => {
-            v.pause();
-            v.currentTime = 0;
+          pm.querySelectorAll("video").forEach(video => {
+            video.pause();
+            video.currentTime = 0;
           });
         }
       });
@@ -174,22 +183,18 @@
       // Toggle current project
       media.classList.toggle("hidden");
 
-      // Handle videos inside this project
-      const videos = media.querySelectorAll("video");
-
-      videos.forEach(video => {
+      // Handle videos in this project
+      media.querySelectorAll("video").forEach(video => {
         if (isHidden) {
-          // Just opened → play
           video.currentTime = 0;
           video.play().catch(() => {});
         } else {
-          // Just closed → stop
           video.pause();
           video.currentTime = 0;
         }
       });
 
-      // Button label
+      // Update button text
       button.textContent = isHidden ? "Hide Media" : "View Media";
     });
   });
@@ -202,4 +207,16 @@
   profilePhoto.addEventListener("click", () => {
     profilePhoto.classList.toggle("active");
   });
+
+  /* ------------------------------
+     AVATAR INTERACTION (WAVE)
+  --------------------------------*/
+  const avatar = document.getElementById("avatar");
+
+  if (avatar) {
+    avatar.addEventListener("click", () => {
+      avatar.classList.add("wave");
+      setTimeout(() => avatar.classList.remove("wave"), 600);
+    });
+  }
 </script>
