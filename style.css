@@ -1,23 +1,26 @@
-/* ------------------------------
-   GLOBAL
---------------------------------*/
 body {
   font-family: Arial, sans-serif;
   background: #0f0f0f;
   color: #eaeaea;
   margin: 0;
-  animation: fadeIn 0.8s ease;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+header {
+  padding: 60px;
+  text-align: center;
+  background: #111;
+}
+
+section {
+  padding: 40px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h2 {
+  margin-bottom: 15px;
+  border-bottom: 2px solid #00ffd5;
+  display: inline-block;
 }
 
 a {
@@ -25,231 +28,96 @@ a {
   text-decoration: none;
 }
 
-.hidden {
-  display: none;
-}
-
-/* ------------------------------
-   HEADER
---------------------------------*/
-header {
-  padding: 60px;
-  text-align: center;
-  background: #111;
-}
-
-h1 {
-  margin-bottom: 8px;
-}
-
-h2 {
-  margin-bottom: 15px;
-  position: relative;
-  display: inline-block;
-}
-
-h2::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 50%;
-  height: 2px;
-  background: #00ffd5;
-}
-
-/* ------------------------------
-   SECTIONS
---------------------------------*/
-section {
-  padding: 40px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-/* ------------------------------
-   BUTTONS
---------------------------------*/
+/* BUTTON */
 .btn {
-  background: none;
   border: 1px solid #00ffd5;
+  background: none;
   color: #00ffd5;
   padding: 6px 16px;
   border-radius: 20px;
   cursor: pointer;
-  transition: all 0.25s ease;
 }
 
 .btn:hover {
   background: #00ffd5;
   color: #000;
-  transform: scale(1.05);
 }
 
-.btn:active {
-  transform: scale(0.95);
-}
-
-/* ------------------------------
-   ABOUT SECTION
---------------------------------*/
+/* ABOUT */
 .about-container {
   display: flex;
   gap: 24px;
   align-items: center;
 }
 
-/* PROFILE PHOTO */
 .profile-photo {
-  width: 160px;
-  height: 160px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  object-fit: cover;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .profile-photo.active {
-  transform: scale(1.1);
-  box-shadow: 0 0 30px rgba(0,255,213,0.6);
+  box-shadow: 0 0 25px rgba(0,255,213,0.6);
 }
 
-/* AVATAR */
 .avatar-wrapper {
   display: flex;
-  gap: 16px;
+  gap: 14px;
   align-items: center;
 }
 
 .avatar {
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  object-fit: cover;
   border: 2px dashed #00ffd5;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.avatar:hover {
-  transform: rotate(-6deg) scale(1.1);
-  box-shadow: 0 0 20px rgba(0,255,213,0.5);
+.avatar.wave {
+  animation: wave 0.6s;
 }
 
-/* AVATAR WAVE */
 @keyframes wave {
   0% { transform: rotate(0); }
   25% { transform: rotate(8deg); }
   50% { transform: rotate(-8deg); }
-  75% { transform: rotate(6deg); }
   100% { transform: rotate(0); }
 }
 
-.avatar.wave {
-  animation: wave 0.6s ease;
+.hidden {
+  display: none;
 }
 
-/* ------------------------------
-   PROJECTS
---------------------------------*/
+/* PROJECTS */
 .project {
   background: #1a1a1a;
-  padding: 25px;
+  padding: 20px;
   border-radius: 14px;
-  margin-top: 25px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 20px;
 }
 
-.project:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0,255,213,0.15);
-}
-
-/* PROJECT MEDIA */
 .project-media video {
   width: 100%;
   max-width: 800px;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 14px;
-  display: block;
   margin: 15px auto;
-  background: #000;
+  display: block;
 }
 
-/* ------------------------------
-   SCREENSHOTS
---------------------------------*/
+/* SCREENSHOTS */
 .screenshots {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 12px;
-  margin-top: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+  gap: 10px;
 }
 
 .screenshots img {
   width: 100%;
-  max-height: 130px;
-  object-fit: cover;
   border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.screenshots img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(0,255,213,0.25);
-}
-
-/* ------------------------------
-   VERTICAL MEDIA
---------------------------------*/
-video.vertical,
-img.vertical {
-  aspect-ratio: 9 / 16;
-  max-width: 320px;
-  max-height: 520px;
-  object-fit: contain;
-  margin: auto;
-  display: block;
-}
-
-/* ------------------------------
-   MOBILE RESPONSIVE
---------------------------------*/
-@media (max-width: 768px) {
-  .about-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .avatar-wrapper {
-    justify-content: center;
-  }
-}
-   /* ------------------------------
-   RESUME SECTION
---------------------------------*/
-#resume {
-  text-align: center;
-}
-
-#resume p {
-  margin-bottom: 20px;
-  opacity: 0.9;
-}
-/* ------------------------------
-   SKILLS SECTION
---------------------------------*/
-.skills-group {
-  margin-top: 20px;
-}
-
-.skills-group h4 {
-  margin-bottom: 10px;
-  font-weight: normal;
-  opacity: 0.8;
-}
-
+/* SKILLS */
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
@@ -260,52 +128,11 @@ img.vertical {
   border: 1px solid #00ffd5;
   padding: 6px 14px;
   border-radius: 20px;
-  font-size: 0.85rem;
-  color: #00ffd5;
-  transition: transform 0.25s ease, background 0.25s ease;
 }
 
-.skills-grid span:hover {
-  background: #00ffd5;
-  color: #000;
-  transform: scale(1.05);
-}
-/* ------------------------------
-   EXPERIENCE SECTION
---------------------------------*/
+/* EXPERIENCE */
 .experience-card {
   background: #1a1a1a;
   padding: 20px;
   border-radius: 14px;
-  margin-top: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.experience-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0,255,213,0.12);
-}
-
-.experience-card h3 {
-  margin-bottom: 5px;
-}
-
-.company {
-  font-size: 0.9rem;
-  opacity: 0.85;
-}
-
-.duration {
-  font-size: 0.8rem;
-  opacity: 0.6;
-  margin-bottom: 10px;
-}
-
-.experience-card ul {
-  padding-left: 18px;
-}
-
-.experience-card li {
-  margin-bottom: 6px;
-}
-
