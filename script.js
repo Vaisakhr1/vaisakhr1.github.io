@@ -1,44 +1,214 @@
-/* ABOUT TOGGLE */
-const toggleBtn = document.getElementById("toggleAbout");
-const moreAbout = document.getElementById("moreAbout");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vaisakh R Iyer | Unity Developer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-toggleBtn.addEventListener("click", () => {
-  moreAbout.classList.toggle("hidden");
-  toggleBtn.textContent =
-    moreAbout.classList.contains("hidden") ? "Read more" : "Read less";
-});
+<!-- INTRO SCREEN -->
+<div id="introScreen">
+  <div class="intro-content">
+    <h1>Hi, I’m Vaisakh 👋</h1>
+    <p>Unity Developer · Game Dev · AR/VR Enthusiast</p>
+    <button class="btn" id="enterSite">Enter Portfolio</button>
+  </div>
+</div>
 
-/* PROJECT MEDIA */
-document.querySelectorAll(".toggleProject").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const media = btn.nextElementSibling;
-    const isHidden = media.classList.contains("hidden");
+<header>
+  <h1>Vaisakh R Iyer</h1>
+  <p>Unity Developer · Game Dev · AR/VR Enthusiast</p>
+</header>
 
-    document.querySelectorAll(".project-media").forEach(pm => {
-      pm.classList.add("hidden");
-      pm.querySelectorAll("video").forEach(v => {
-        v.pause();
-        v.currentTime = 0;
-      });
-    });
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Me</h2>
 
-    if (isHidden) {
-      media.classList.remove("hidden");
-      media.querySelectorAll("video").forEach(v => v.play().catch(() => {}));
-      btn.textContent = "Hide Media";
-    } else {
-      btn.textContent = "View Media";
-    }
-  });
-});
+  <div class="about-container">
 
-/* PROFILE PHOTO */
-document.getElementById("profilePhoto")
-  .addEventListener("click", e => e.target.classList.toggle("active"));
+    <div class="avatar-wrapper">
+      <img src="assets/images/profile.jpeg"
+           alt="Vaisakh Profile Photo"
+           class="profile-photo"
+           id="profilePhoto">
 
-/* AVATAR WAVE */
-document.getElementById("avatar")
-  .addEventListener("click", e => {
-    e.target.classList.add("wave");
-    setTimeout(() => e.target.classList.remove("wave"), 600);
-  });
+      <div class="avatar-container">
+        <img src="assets/images/Avatar1.png"
+             alt="Vaisakh Avatar"
+             class="avatar"
+             id="avatar">
+        <div class="speech-bubble" id="avatarBubble">
+          Hey, I’m Vaisakh 👋
+        </div>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <p>
+        I’m a BCA graduate passionate about Game Development and AR/VR (XR).
+        I work with Unity and C#, focusing on gameplay mechanics, immersive
+        interactions, and real-time experiences.
+      </p>
+
+      <p class="hidden" id="moreAbout">
+        As a fresher, I actively build projects across 2D, 3D, AR, and VR,
+        learning through hands-on experimentation. I’m eager to grow in a
+        collaborative environment and contribute to meaningful interactive
+        experiences.
+      </p>
+
+      <button id="toggleAbout" class="btn">Read more</button>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+
+  <div class="skills-group">
+    <h4>Game & XR Development</h4>
+    <div class="skills-grid">
+      <span>Unity Engine</span>
+      <span>2D & 3D Games</span>
+      <span>AR Foundation</span>
+      <span>XR Interaction Toolkit</span>
+      <span>VR Development</span>
+      <span>Gameplay Systems</span>
+    </div>
+  </div>
+
+  <div class="skills-group">
+    <h4>Programming</h4>
+    <div class="skills-grid">
+      <span>C#</span>
+      <span>Java</span>
+      <span>C / C++</span>
+      <span>JavaScript</span>
+    </div>
+  </div>
+
+  <div class="skills-group">
+    <h4>Tools</h4>
+    <div class="skills-grid">
+      <span>Git & GitHub</span>
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>Blender (Basics)</span>
+      <span>Figma</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+
+  <!-- 2D -->
+  <div class="project">
+    <h3>Dreadlord’s Legacy · 2D Game</h3>
+    <p>Dark fantasy 2D platformer built in Unity.</p>
+    <button class="btn toggleProject">View Media</button>
+    <div class="project-media hidden">
+      <video autoplay loop muted playsinline>
+        <source src="assets/gifs/dreadlordgif.mp4" type="video/mp4">
+      </video>
+      <div class="screenshots">
+        <img src="assets/images/2d1.jpeg">
+        <img src="assets/images/2d3.jpeg">
+        <img src="assets/images/2f2.jpeg">
+      </div>
+    </div>
+  </div>
+
+  <!-- AR -->
+  <div class="project">
+    <h3>Playce · AR Application</h3>
+    <p>Mobile AR experience built with Unity AR Foundation.</p>
+    <button class="btn toggleProject">View Media</button>
+    <div class="project-media hidden">
+      <video class="vertical" autoplay loop muted playsinline>
+        <source src="assets/gifs/ARgif.mp4" type="video/mp4">
+      </video>
+      <div class="screenshots">
+        <img class="vertical" src="assets/images/AR3.jpeg">
+        <img class="vertical" src="assets/images/AR4.jpeg">
+      </div>
+    </div>
+  </div>
+
+  <!-- 3D -->
+  <div class="project">
+    <h3>My3DGame · Horror</h3>
+    <p>Atmospheric 3D horror game.</p>
+    <button class="btn toggleProject">View Media</button>
+    <div class="project-media hidden">
+      <video autoplay loop muted playsinline>
+        <source src="assets/gifs/3dgif.mp4" type="video/mp4">
+      </video>
+      <div class="screenshots">
+        <img src="assets/images/3d1.jpeg">
+        <img src="assets/images/3d2.jpeg">
+        <img src="assets/images/3d5.jpeg">
+      </div>
+    </div>
+  </div>
+
+  <!-- VR -->
+  <div class="project">
+    <h3>Infinity Castle · VR</h3>
+    <p>Large-scale VR environment using Unity XR.</p>
+    <button class="btn toggleProject">View Media</button>
+    <div class="project-media hidden">
+      <video class="vertical" autoplay loop muted playsinline>
+        <source src="assets/gifs/IC(gif).mp4" type="video/mp4">
+      </video>
+      <div class="screenshots">
+        <img src="assets/images/IC1.jpeg">
+        <img src="assets/images/IC2.jpeg">
+        <img src="assets/images/ic4.jpeg">
+        <img src="assets/images/IC5.jpeg">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="experience-card">
+    <h3>Unity / XR Developer Intern</h3>
+    <p class="company">XR Horizon · Kochi</p>
+    <p class="duration">Dec 2024</p>
+    <ul>
+      <li>Developed AR & VR interactions using Unity</li>
+      <li>Worked with C# gameplay scripts</li>
+      <li>Learned XR production workflows</li>
+    </ul>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <h2>Resume</h2>
+  <p>Download my resume for full details.</p>
+  <a href="assets/resume/Vaisakh_R_Iyer_Resume.pdf" class="btn" download>
+    Download Resume
+  </a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>📧 <a href="mailto:vaishakriyer123@gmail.com">vaishakriyer123@gmail.com</a></p>
+  <p>📞 <a href="tel:+918129625530">+91 8129625530</a></p>
+  <p>
+    🔗 <a href="https://www.linkedin.com/in/vaisakh-r-iyer/" target="_blank">LinkedIn</a> ·
+    <a href="https://github.com/Vaisakhr1" target="_blank">GitHub</a>
+  </p>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
