@@ -225,7 +225,7 @@ img.vertical {
   .avatar-wrapper {
     justify-content: center;
   }
-
+}
    /* ------------------------------
    RESUME SECTION
 --------------------------------*/
@@ -236,6 +236,4 @@ img.vertical {
 #resume p {
   margin-bottom: 20px;
   opacity: 0.9;
-}
-
 }
